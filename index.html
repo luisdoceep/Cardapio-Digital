@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardápio Escolar - CEEP Semiárido</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f8ff, #ffffff);
+      margin: 0;
+      padding: 20px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #2e8b57;
+      margin-bottom: 10px;
+    }
+
+    .cardapio {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .item {
+      margin: 12px 0;
+      padding: 15px;
+      border: 2px solid #2e8b57;
+      border-radius: 10px;
+      background-color: #e6f2ff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      position: relative;
+    }
+
+    .item:hover {
+      background-color: #d9efff;
+    }
+
+    .receita {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .item.active .receita {
+      max-height: 200px;
+      padding-top: 10px;
+    }
+
+    .creditos {
+      text-align: center;
+      margin-top: 30px;
+      font-style: italic;
+      color: #555;
+    }
+
+    .logo-fixa {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 80px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cardápio Escolar - CEEP Semiárido</h1>
+  <h2>2º Ano - Manutenção e Suporte em Informática</h2>
+
+  <div class="cardapio">
+    <div class="item" onclick="toggleReceita(this)">
+      <strong>Segunda:</strong> Caldo de Aipim
+      <div class="receita">
+        Feito com aipim, frango, alho, cebola e cheiro-verde.<br>
+        <strong>Contém:</strong> lactose (se usar creme), sem glúten, sem ovo.
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleReceita(this)">
+      <strong>Terça:</strong> Cuscuz
+      <div class="receita">
+        Cuscuz de milho com manteiga e queijo (opcional).<br>
+        <strong>Contém:</strong> lactose, sem glúten, sem ovo.
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleReceita(this)">
+      <strong>Quarta:</strong> Macarronada
+      <div class="receita">
+        Macarrão com molho e carne moída.<br>
+        <strong>Contém:</strong> glúten, pode conter lactose, sem ovo.
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleReceita(this)">
+      <strong>Quinta:</strong> Cuscuz com Ovo
+      <div class="receita">
+        Cuscuz com ovo mexido.<br>
+        <strong>Contém:</strong> lactose, sem glúten, contém ovo.
+      </div>
+    </div>
+
+    <div class="item" onclick="toggleReceita(this)">
+      <strong>Sexta:</strong> Arroz Doce
+      <div class="receita">
+        Arroz com leite, açúcar, canela e cravo.<br>
+        <strong>Contém:</strong> lactose, sem glúten, sem ovo.
+      </div>
+    </div>
+  </div>
+
+  <div class="creditos">
+    Feito por Luis Fernando Teixeira Rodrigues e Guilherme Oliveira Matos
+  </div>
+
+  <img class="logo-fixa" src="https://i.imgur.com/J9Tebkk.jpg" alt="Logo CEEP Semiárido">
+
+  <script>
+    function toggleReceita(itemClicado) {
+      const itens = document.querySelectorAll('.item');
+      itens.forEach(item => {
+        if (item !== itemClicado) {
+          item.classList.remove('active');
+        }
+      });
+      itemClicado.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
